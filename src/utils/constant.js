@@ -6,4 +6,5 @@ export const RELATED_VIDEO = `https://www.googleapis.com/youtube/v3/search?part=
 export const Video_INFO = `https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&key=${GOOGLE_API_KEY}&id=`
 export const CHANNEL_INFO =  `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&key=${GOOGLE_API_KEY}&id=`
 // export const CHANNEL_INFO =  `https://www.googleapis.com/youtube/v3/channels?part=snippet&key=${GOOGLE_API_KEY}&id=`
-export const SEARCH_RESULT = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=${GOOGLE_API_KEY}&q=ipl`
+export const SEARCH_RESULT = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=${GOOGLE_API_KEY}&q=`
+export const VIDEO_COMMENT = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=50&key=${GOOGLE_API_KEY}&videoId=`

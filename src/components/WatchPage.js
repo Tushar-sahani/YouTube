@@ -3,95 +3,9 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import { Video_INFO, CHANNEL_INFO,RELATED_VIDEO } from '../utils/constant';
+import CommentContainer from "./CommentContainer";
 
-const comments = [
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-    reply: [
-      {
-        img: <img src="" alt="" srcset="" />,
-        name: 'Tushar Sahani',
-        comment: "this is good video",
-      },
-      {
-        img: <img src="" alt="" srcset="" />,
-        name: 'Tushar Sahani',
-        comment: "this is good video",
-      },
-    ]
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-    reply: [
-      {
-        img: <img src="" alt="" srcset="" />,
-        name: 'Tushar Sahani',
-        comment: "this is good video",
-        reply: [
-          {
-            img: <img src="" alt="" srcset="" />,
-            name: 'Tushar Sahani',
-            comment: "this is good video",
-          },
-          {
-            img: <img src="" alt="" srcset="" />,
-            name: 'Tushar Sahani',
-            comment: "this is good video",
-          },
-        ]
-      },
-      {
-        img: <img src="" alt="" srcset="" />,
-        name: 'Tushar Sahani',
-        comment: "this is good video",
-      },
-    ]
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-  },
-  {
-    img: <img src="" alt="" srcset="" />,
-    name: 'Tushar Sahani',
-    comment: "this is good video",
-  },
-] 
 
-const CommentPage = ({text})=>{
-  return(
-    <div className="c">
-      {
-        text.img
-      }
-      <div>
-        <h1>{text.name}</h1>
-        <p>{text.comment}</p>
-      </div>
-
-    </div>
-  )
-}
 const WatchPage = () => {
   
   const dispatch = useDispatch();
@@ -104,13 +18,13 @@ const WatchPage = () => {
     const data = await fetch(Video_INFO + searchParams.get('v'));
     const json = await data.json();
     setVideoInfo(json?.items[0])
-    console.log(json?.items[0]);
+    // console.log(json?.items[0]);
   }
 
   const getChennelDetail = async ()=>{
       const data = await fetch(CHANNEL_INFO+vedioInfo?.snippet?.channelId);
       const json = await data.json();
-      setchannelInfo(json?.items[0]);
+      setchannelInfo(json?.items && json?.items[0]);
       // console.log(json?.items[0]);
 
   }
@@ -118,7 +32,7 @@ const WatchPage = () => {
       const data = await fetch(RELATED_VIDEO + vedioInfo?.id);
       const json = await data.json();
       // setRelatedVideo(json?.items[0]);
-      console.log(json);
+      // console.log(json);
 
   }
 
@@ -133,7 +47,7 @@ const WatchPage = () => {
     getChennelDetail();
   },[vedioInfo]);
   return (
-    <div className="ml-16 mt-4 -z-0">
+    <div className="ml-16 mt-4 -z-0 w-[62%]">
       <iframe className="rounded-2xl"
         width="900"
         height="509"
@@ -165,12 +79,8 @@ const WatchPage = () => {
           </div>
         </div>
       </div>
-      <div>
-        {
-          comments.map((comment)=>{
-            <CommentPage text={comment}/>
-          })
-        }
+      <div className="">
+        <CommentContainer video_id={searchParams.get('v')}/>
       </div>
     </div>
   );
