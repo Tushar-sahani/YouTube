@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyAKcYE1-pmnH0-2zADAhXjZZ0c1BShomNg";
+const GOOGLE_API_KEY = "{YOUR_API_KEY}";
 export const YOUTUBE_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=in&key="+GOOGLE_API_KEY;
 
 export const YOUTUBE_SUGGESTION = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
