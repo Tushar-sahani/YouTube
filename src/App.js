@@ -1,38 +1,47 @@
-import { Provider } from 'react-redux';
+
+import {  createBrowserRouter } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import Error from './components/Error';
 import Body from './components/Body';
-import Head from './components/Head';
-import store from './utils/store';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainContainer from './components/MainContainer';
-import WatchPage from './components/WatchPage'
+import WatchVideo from './components/WatchVideo';
+import SearchResultContainer from './components/SearchResultContainer';
+
+
+
 
 function App() {
-  const approute = createBrowserRouter([
-    {
-      path:"/",
-      element:<Body/>,
-      children:[
-        {
-          path:"/",
-          element:<MainContainer/>,
-        },
-        {
-          path:"watch",
-          element:<WatchPage/>
-        }
-      ]
-    }
-  ])
-  return (
-    <Provider store={store}>
-      <div>
-        <Head />
-        <RouterProvider router = {approute}/>
 
-      </div>
-    </Provider>
+  return (
+    <div >
+      <Header/>
+      <Body/>
+      
+    </div>
   );
 }
+
+export const appRouter = createBrowserRouter([{
+  path:'/',
+  element:<App/>,
+  errorElement:<Error/>,
+  children:[{
+    path:'/',
+    element:<MainContainer/>
+  },
+  {
+    path:'watch',
+    element:<WatchVideo/>
+  },
+  {
+    path:'results',
+    element:<SearchResultContainer/>
+  }
+]
+}])
+
+
+
 
 export default App;

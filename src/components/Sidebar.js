@@ -1,198 +1,100 @@
-import React, { useState } from 'react'
-import shorts from '../assets/shorts.png'
-import HomeIcon from '@mui/icons-material/HomeOutlined';
-import VideoLibraryIcon from '@mui/icons-material/VideoLibraryOutlined';
-import SubscriptionsIcon from '@mui/icons-material/SubscriptionsOutlined';
-import HistoryIcon from '@mui/icons-material/HistoryOutlined';
-import ThumbUpIcon from '@mui/icons-material/ThumbUpOutlined';
-import WatchLaterIcon from '@mui/icons-material/WatchLaterOutlined';
-import WhatshotIcon from '@mui/icons-material/WhatshotOutlined';
-import LocalMallIcon from '@mui/icons-material/LocalMallOutlined';
-import MusicNoteIcon from '@mui/icons-material/MusicNoteOutlined';
-import MovieIcon from '@mui/icons-material/MovieOutlined';
-import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
-import SurroundSoundIcon from '@mui/icons-material/SurroundSoundOutlined';
-import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
-import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
-import VideogameAssetOutlinedIcon from '@mui/icons-material/VideogameAssetOutlined';
-import MovieCreationOutlinedIcon from '@mui/icons-material/MovieCreationOutlined';
+import React from 'react'
 import { useSelector } from 'react-redux';
-import store from '../utils/store';
+import { NavLink  } from 'react-router-dom';
+
+import homeIcon from '../assets/home.svg';
+import shortsIcon from '../assets/shorts.svg';
+import subscriptionsIcon from '../assets/subscriptions.svg';
+import redLiveIcon from '../assets/red-live.svg';
+
+import libraryIcon from '../assets/library.svg';
+import historyIcon from '../assets/history.svg';
+import yourVideosIcon from '../assets/yourVideos.svg';
+import watchLaterIcon from '../assets/watchLater.svg';
+import likedVideosIcon from '../assets/likedVideos.svg';
+import showMoreIcon from '../assets/showMore.svg';
+
+import trendingIcon from '../assets/trending.svg';
+import shoppingIcon from '../assets/shopping.svg';
+import musicIcon from '../assets/music.svg';
+import moviesIcon from '../assets/movies.svg';
+import liveIcon from '../assets/live.svg';
+import gamingIcon from '../assets/gaming.svg';
+import newsIcon from '../assets/news.svg';
+import sportsIcon from '../assets/sports.svg';
+import learningIcon from '../assets/learning.svg';
+import fashionAndBeautyIcon from '../assets/fashionAndBeauty.svg';
+
+import ytPremiumIcon from '../assets/yt-premium.svg';
+import ytStudioIcon from '../assets/yt-studio.svg';
+import ytMusicIcon from '../assets/yt-music.svg';
+import ytKidsIcon from '../assets/yt-kids.svg';
+
+import settingsIcon from '../assets/settings.svg';
+import reportHistoryIcon from '../assets/reportHistory.svg';
+import helpIcon from '../assets/help.svg';
+import sendFeedbackIcon from '../assets/sendFeedback.svg';
+
 const Sidebar = () => {
-  // const [scrollEnable, setScrollEnable] = useState(false);
-  // const enableScroll = ()=>{
-  //   setScrollEnable(true);
-  //   console.log(scrollEnable);
-  // }
-  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
+
+  const isMenuOpen = useSelector(store => store.menu.isMenuOpen);
 
   if (!isMenuOpen) return null;
 
   return (
-    <div className='shadow-lg z-10' >
-      <div className="fixed left-0 bg-white " >
-        <ul className='p-3 '>
-          <li className=' p-2'>
-            <div className="flex" >
-              <HomeIcon />
-              <p className="pl-6">Home</p>
-            </div>
-          </li>
-          <li className=' p-2'>
-            <div className="flex">
-              <img className='w-4' src={shorts} alt="shorts" />
-              <p className="pl-6">Shorts</p>
-            </div>
-          </li>
-          <li className=' p-2'>
-            <div className="flex">
-              <SubscriptionsIcon/>
-              <p className="pl-6">Subscription</p>
-            </div>
-          </li>
-          <hr />
-          <li className='p-2'>
-            <div className="flex">
-              <VideoLibraryIcon/>
-              <p className="pl-6">Library</p>
-            </div>
-          </li>
-          <li className='p-2'>
-            <div className="flex">
-              <HistoryIcon/>
-              <p className="pl-6">History</p>
-            </div>
-          </li>
-          {/* <li className='p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`}>
-              <WatchLaterIcon />
-              <p className={`${!isMenuOpen? '':'pl-6'}`}>Watch later</p>
-            </div>
-          </li>
-          <li className='p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`}>
-              <ThumbUpIcon />
-              <p className={`${!isMenuOpen? '':'pl-6'}`}>Liked video</p>
-            </div>
-          </li> */}
-        </ul>
-        <hr />
-        <div>
-          <h2 className='ml-4 mt-4 font-semibold'>Subscription</h2>
-          <ul className='p-3'>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <PlayCircleOutlineOutlinedIcon className='bg-sky-400 rounded-full' />
-                <p className='pl-6'>Music</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <EmojiEventsOutlinedIcon sx={{ color: "#FFFF33" }} className='bg-blue-500 rounded-full' />
-                <p className='pl-6'>Sports</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <VideogameAssetOutlinedIcon className='bg-sky-400 rounded-full' />
-                <p className='pl-6'>Gaming</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <MovieCreationOutlinedIcon className='bg-[#007FFF] rounded-full' />
-                <p className='pl-6'>Movies</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className=''>
-          <h1 className='ml-4 font-semibold'>Explore</h1>
-          <ul className='p-3'>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <WhatshotIcon />
-                <p className='pl-6'>Trending</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <LocalMallIcon />
-                <p className='pl-6'>Shopping</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <MusicNoteIcon />
-                <p className='pl-6'>Music</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <MovieIcon />
-                <p className='pl-6'>Movies</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <SurroundSoundIcon />
-                <p className='pl-6'>Live</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <SportsEsportsOutlinedIcon />
-                <p className='pl-6'>Gaming</p>
-              </div>
-            </li>
-            <li className='text-center p-2'>
-              <div className='flex '>
-                <NewspaperOutlinedIcon />
-                <p className='pl-6'>News</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+    <div className='p-5 max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain fixed top-[64px] z-50 bg-white text-left w-[280px]'>
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to='/'> <img className='inline-block align-bottom mr-3' src={homeIcon} alt="Home" /> Home</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={shortsIcon} alt="Shorts" /> Shorts</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={subscriptionsIcon} alt="Subscriptions" /> Subscriptions</NavLink ></li>
+      </ul>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={libraryIcon} alt="Library" /> Library</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={historyIcon} alt="History" /> History</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={yourVideosIcon} alt="YourVideos" /> Your Videos</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={watchLaterIcon} alt="WatchLater" /> Watch Later</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={likedVideosIcon} alt="LikedVideos" /> Liked Videos</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={showMoreIcon} alt="ShowMore" /> Show More</NavLink ></li>
+      </ul>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      <h1 className='font-medium pt-5'>Subscriptions</h1>
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> Scary Fun <img className='inline-block align-bottom mr-3' src={redLiveIcon} alt="ScaryFun" /> </NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> Crime Tak <img className='inline-block align-bottom mr-3' src={redLiveIcon} alt="CrimeTak" /> </NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> Show More... <img className='inline-block align-bottom mr-3' src={showMoreIcon} alt="ShowMore" /> </NavLink ></li>
+      </ul>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      <h1 className='font-medium pt-5'>Explore</h1>
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={trendingIcon} alt="Trending" /> Trending</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={shoppingIcon} alt="Shopping" /> Shopping</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={musicIcon} alt="Music" /> Music</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={moviesIcon} alt="Movies" /> Movies</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={liveIcon} alt="Live" /> Live</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={gamingIcon} alt="Gaming" /> Gaming</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={newsIcon} alt="News" /> News</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={sportsIcon} alt="Sports" /> Sports</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={learningIcon} alt="Learning" /> Learning</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={fashionAndBeautyIcon} alt="FashionBeauty" /> Fashion & Beauty</NavLink ></li>
+      </ul>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      <h1 className='font-medium pt-5'>More From Youtube</h1>
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={ytPremiumIcon} alt="YoutubePremium" /> Youtube Premium</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={ytStudioIcon} alt="YoutubeStudio" /> Youtube Studio</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={ytMusicIcon} alt="YoutubeMusic" /> Youtube Music</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={ytKidsIcon} alt="YoutubeKids" /> Youtube Kids</NavLink ></li>
+      </ul>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      <ul>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={settingsIcon} alt="Settings" /> Settings</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={reportHistoryIcon} alt="ReportHistory" /> Report History</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={helpIcon} alt="Help" /> Help</NavLink ></li>
+        <li className='my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg'><NavLink  to={'/'}> <img className='inline-block align-bottom mr-3' src={sendFeedbackIcon} alt="Send Feedback" /> Send Feedback</NavLink ></li>
+      </ul>
     </div>
   )
 }
 
 export default Sidebar;
-
-{/* <div className={` w-full ${!isMenuOpen? 'w-4/5 text-center':''}`} >
-      <div className="fixed left-0 bg-white" >
-        <ul className='p-3'>
-          <li className=' p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`} >
-              <HomeIcon sx={{fontSize:`${!isMenuOpen? '35px':'24px'}`,width:`${!isMenuOpen? '100%':'18%'}`}}/>
-              <p className={`${!isMenuOpen? 'text-xs':'pl-6'}`}>Home</p>
-            </div>
-          </li>
-          <li className=' p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`}>
-              <img className={`w-4 ${!isMenuOpen? 'w-7 mx-4':'mx-1'}`} src={shorts} alt="shorts" />
-              <p className={`${!isMenuOpen? 'text-xs':'pl-6'}`}>Shorts</p>
-            </div>
-          </li>
-          <li className=' p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`}>
-              <SubscriptionsIcon sx={{fontSize:`${!isMenuOpen? '35px':'24px'}`,width:`${!isMenuOpen? '100%':'18%'}`}}/>
-              <p className={`${!isMenuOpen? 'text-xs -px-2':'pl-6'}`}>Subscription</p>
-            </div>
-          </li>
-          <hr />
-          <li className='p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle':''}`}>
-              <VideoLibraryIcon sx={{fontSize:`${!isMenuOpen? '35px':'24px'}`,width:`${!isMenuOpen? '100%':'18%'}`}}/>
-              <p className={`${!isMenuOpen? 'text-xs':'pl-6'}`}>Library</p>
-            </div>
-          </li>
-          <li className='p-2'>
-            <div className={`flex ${!isMenuOpen? 'flex-col justify-center align-middle ':''}`}>
-              <HistoryIcon sx={{fontSize:`${!isMenuOpen? '35px':'24px'}`,width:`${!isMenuOpen? '100%':'18%'}`}}/>
-              <p className={`${!isMenuOpen? 'text-xs':'pl-6'}`}>History</p>
-            </div>
-          </li> */}

@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux"
-import ButtonList from "./ButtonList"
-import VedioContainer from "./VedioContainer"
+import React from 'react'
+import ButtonList from './ButtonList'
+import VideoContainer from './VideoContainer'
+
 const MainContainer = () => {
-  const selector = useSelector(store=>store.app.isMenuOpen);
   return (
-    <div className={`${selector ? 'ml-28 ':''}`}>
-        <ButtonList />
-        <VedioContainer/>
+    <div className= 'mt-[80px] px-3 col-span-11'>
+      <ButtonList/>
+      <VideoContainer/>
     </div>
   )
 }
